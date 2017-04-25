@@ -1,0 +1,40 @@
+#%RAML 1.0
+title: I18N API
+version: v1
+baseUri: http://api.i18n.com
+mediaType:
+  - application/json
+protocols:
+  - http
+
+/bundle:
+  /{bundleId}:
+    /{sha}:
+      get:
+        description: Gives the js bundle for the given id and signature
+        responses:
+          200:
+            body:
+              application/javascript:
+
+/sha:
+  /{bundleId}:
+    description: Get the sha value given a bundle
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: string
+
+
+/admin:
+  /bundle/{bundleId}:
+    post:
+      responses:
+        200:
+          body:
+            application/json:
+              type: string
+        401:
+          description: Non admin users cannot create the bundle
