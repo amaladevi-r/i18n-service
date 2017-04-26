@@ -1,11 +1,11 @@
 #%RAML 1.0
 title: I18N API
 version: v1
-baseUri: http://api.i18n.com
+baseUri: http://api.i18n.bankbazaar.com
 mediaType:
   - application/json
 protocols:
-  - http
+  - HTTP
 
 /bundle:
   /{bundleId}:
@@ -31,6 +31,7 @@ protocols:
 /admin:
   /bundle/{bundleId}:
     post:
+      description: Generate the bundle from the latest configuration
       responses:
         200:
           body:
